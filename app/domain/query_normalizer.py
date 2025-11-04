@@ -35,7 +35,7 @@ def normalize_search_query(request: SearchRequest) -> NormalizedQuery:
         if key in ALLOWED_FILTER_FIELDS and value is not None
     }
 
-    if contrib is not None:
+    if contrib is not None and "TICO_CODIGO" not in filters:
         filters["TICO_CODIGO"] = 3 if contrib else 6
 
     limit_value = None
