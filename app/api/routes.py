@@ -12,7 +12,10 @@ export_service = ExportService()
 
 @api_router.post("/search", response_model=SearchResponse)
 def search_records(request: SearchRequest) -> SearchResponse:
-    results = search_service.search_records(request)
+    try:
+        results = search_service.search_records(request)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     return SearchResponse(count=len(results), results=results)
 
 
