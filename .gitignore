@@ -1,0 +1,16 @@
+# venv
+env/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# pytest
+.pytest_cache/
+
+# VSCode
+.vscode/
+
+# dados locais
+data/*.csv
